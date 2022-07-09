@@ -8,13 +8,13 @@ import process from "process";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.API_KEY, 
-  authDomain: process.env.AUTH_DOMAIN,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGE_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID
+  apiKey: "AIzaSyBg2CbRigaHMStqAw9RRWBKs56vBU5nYD0",
+  authDomain: "jpflashcards-daeb9.firebaseapp.com",
+  projectId: "jpflashcards-daeb9",
+  storageBucket: "jpflashcards-daeb9.appspot.com",
+  messagingSenderId: "471117823471",
+  appId: "1:471117823471:web:3e50628e117c661b108a1a",
+  measurementId: "G-6NJR33PX2R"
 };
 
 // Initialize Firebase
