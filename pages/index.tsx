@@ -4,9 +4,16 @@ import styles from '../styles/Practice.module.css'
 import Navbar from '../components/navbar/Navbar'
 import { PracticeCard } from '../components/practicecard/PracticeCard'
 import CardProgress from '../components/CardProgress/CardProgress'
-import { database } from '../firebaseConfig';
+import { database, app } from '../firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore'
 import React from 'react'
+const { initializeAppCheck, ReCaptchaV3Provider } = require("firebase/app-check");
+
+const appCheck = initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider('6Lf2ydggAAAAAPLSD65COFmsRx7NifdV-9ryjI6P'),
+
+  isTokenAutoRefreshEnabled: true
+});
 
 const words: string[] = [];
 
