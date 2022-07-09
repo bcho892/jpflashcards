@@ -9,13 +9,7 @@ import { collection, getDocs } from 'firebase/firestore'
 import React from 'react'
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
-const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider('6Lf2ydggAAAAAPLSD65COFmsRx7NifdV-9ryjI6P'),
 
-  // Optional argument. If true, the SDK automatically refreshes App Check
-  // tokens as needed.
-  isTokenAutoRefreshEnabled: true
-});
 
 const words: string[] = [];
 
@@ -24,7 +18,13 @@ const dbInstance = collection(database, 'words');
 const myWords = new Collection(words);
 
 const Practice: NextPage = () => {
-
+  const appCheck = initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider('6Lf2ydggAAAAAPLSD65COFmsRx7NifdV-9ryjI6P'),
+  
+    // Optional argument. If true, the SDK automatically refreshes App Check
+    // tokens as needed.
+    isTokenAutoRefreshEnabled: true
+  });
   const [currentWord, setCurrentWord] = React.useState<string>(myWords.getWord());
   const update = () => { setCurrentWord(myWords.getWord()); }
 
