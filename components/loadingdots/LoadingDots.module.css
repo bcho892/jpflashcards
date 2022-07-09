@@ -1,0 +1,31 @@
+@keyframes growshrink {
+    0%{transform: scale(1);}
+    25% {transform: scale(0.8);}
+    75% {transfrom: scale(1.2);}
+    100% {transform:scale(1)}
+}
+
+.container{
+    display: flex;
+    justify-self: center;
+    
+}
+
+.circle{
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 50%;
+    background-color: var(--var3);
+    animation-name: growshrink;
+    animation-duration: 2s;
+    margin: 0 0.1rem;
+    animation-iteration-count: infinite;
+}
+
+.circle.two{
+    animation-delay: 0.3s;
+}
+
+.circle.three{
+    animation-delay: 0.6s;
+}

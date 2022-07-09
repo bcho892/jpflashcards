@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    padding-top: 5rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.searchholder{
+    height: 7rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--var2);
+}
+
+.searchbarcontainer {
+    display: flex;
+    width: 80%;
+
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.searchbarcontainer input {
+    height: 4.5rem;
+    width: 100%;
+    border-radius: 1rem;
+    border: none;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.searchbarcontainer input:focus{
+    outline: none;
+}
+
+.searchbarcontainer span::after {
+    position: absolute;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 900;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 4.5rem;
+    right: 10%;
+    background: var(--var3);
+    content: '検索';
+    
+    border-radius: 0 1rem 1rem 0;
+    cursor: pointer;
+}
+
+.resultscontainer{
+    width: 100%;
+    display: flex;
+}
+
+.sidebar{
+    min-width: 20rem;
+    flex: 2;
+    height: calc(100vh - 12rem);
+    justify-self:flex-start;
+}
+
+.results{
+    flex: 4;
+    background-color: #e7e7e7;
+    height: calc(100vh - 12rem);
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+    overflow-y: scroll;
+}
+
+.results h2{
+
+
+}

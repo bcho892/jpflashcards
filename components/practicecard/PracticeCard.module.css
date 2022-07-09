@@ -1,0 +1,53 @@
+.container {
+    height: fit-content;
+    max-width: 700px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    background-color: white;
+    position: relative;
+}
+
+.navbutton {
+    border-radius: 6px;
+    bottom: -3rem;
+    height: 2rem;
+    width: 5rem;
+    color: white;
+    position: absolute;
+    display: flex;
+    background-color: var(--var3);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.header {
+    color: var(--var1);
+    display: flex;
+    align-items: center;
+}
+
+.container svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.right {
+    left: 0;
+
+}
+
+.left {
+    right: 0;
+    align-self: flex-end;
+}
+
+.container a {
+    color: var(--var2);
+}

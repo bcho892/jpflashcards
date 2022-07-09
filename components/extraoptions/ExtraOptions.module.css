@@ -1,0 +1,51 @@
+.container{
+    display: flex;
+    padding: 1.5rem 2rem;
+    flex-direction: column;
+}
+
+.divider{
+    width: 100%;
+    height: 3rem;
+    border-radius: 10px 10px 0 0 ;
+    background-color: var(--var1);
+    color:white;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1.5rem;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--var1);
+    padding-bottom: 1rem;
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 1.5rem;
+}
+
+.box li{
+    
+    cursor: pointer;
+    font-weight: 400;
+    list-style: none;
+}
+
+.buttoncontainer{
+    
+    margin-left: auto;
+    padding: 0 1rem;
+}
+
+.box button{
+    cursor: pointer;
+    color:white;
+    background-color: var(--var3);
+    border: none;
+    height: 2rem;
+    width: 4rem;
+    border-radius: 10px;
+    margin: 0 0.4rem;
+}
+

@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    width:80%;
+    max-width: 70rem;
+    height: fit-content;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.collapsed {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    color: var(--var1);
+    
+}
+
+.collapsed h1{
+    padding-right: 1rem;
+}
+
+.collapsed svg {
+    margin-right: 1rem;
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+    cursor:pointer;
+}
+
+.collapsed.opened svg{
+    transform: rotate(270deg); 
+}
+
+.fullheight {
+    height: 0;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+    visibility: hidden;
+
+}
+
+.addbutton{
+    height: 2.5rem;
+    width: 5rem;
+    border-radius: 10px;
+    background-color: var(--var3);
+    margin-left: auto;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  
+}
+
+.fullheight p {
+    opacity: 0;
+}
+
+.fullheight.opened {
+    height: fit-content;
+    visibility: visible;
+    padding-bottom: 1rem;
+
+}
+
+.fullheight.opened p {
+    opacity: 1;
+}
