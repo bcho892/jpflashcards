@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/swc/
 # next.js
 /.next/
 /out/
@@ -33,3 +33,5 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+.env.local
