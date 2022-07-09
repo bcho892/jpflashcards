@@ -82,7 +82,7 @@ const ExtraOptions: React.FC<ExtraOptionsProps> = ({ search, langFunc, changeSea
                         <LoadingDots />
                         : suggestions.slice(indexes.currentIndex, indexes.maxIndex)
                             .map((item, index) => {
-                                return <li onClick={() => getPopularDetail(item.word)}>{item.rank}. {item.word}</li>
+                                return <li key={item.rank} onClick={() => getPopularDetail(item.word)}>{item.rank}. {item.word}</li>
                             })}
                 </ul>
                 <span className={styles.buttoncontainer}>
