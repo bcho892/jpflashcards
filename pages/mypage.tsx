@@ -40,8 +40,8 @@ const MyPage: NextPage = () => {
     return (
         <div className={styles.container}>
             <div className={styles.wordholder}>
-                {currentWord.length !== 0 ? currentWord.map((item) => {
-                    return <MyPageCard word={formatWord(item)} meaning={getMeaning(item)} update={getWords} />
+                {currentWord.length !== 0 ? currentWord.map((item, index) => {
+                    return <MyPageCard key={index} word={formatWord(item)} meaning={getMeaning(item)} update={getWords} />
                 }) :
                     <div className={styles.loadingmessage}>
                         <h1>しばらくお待ちください。</h1>
