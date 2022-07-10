@@ -1,50 +1,44 @@
+type WordCollection = {
+    bigColl: string[];
+    searchColl: string[]
+}
 export class Collection {
-    words: string[];
-    currentIndex: number;
-    constructor(words:string[]) {
-        this.words = words;
-        this.currentIndex = 0;
+
+    words: WordCollection;
+    isSearching:boolean;
+
+    constructor(initial: string[]) {
+        this.words ={bigColl: initial, searchColl:initial};
+        this.isSearching = false;
     }
 
-    private checkValidity(index:number):boolean{
-        return index >= 0 && index < this.size();
-    }
-    
-    public updateWords(newData:string[]){
-        while(this.currentIndex >= newData.length && this.currentIndex !== 0){
-            this.currentIndex--;
+
+    public findWord(word: string) {
+        if(word.trim() === "") {
+            this.isSearching = false;
+            return;
         }
-        this.words = newData;
-    }
-
-    public size():number{
-        return this.words.length;
-    }
-
-    public getWord():string{
-        console.log("called");
-        return this.words[this.currentIndex];
-    }
-
-    public getIndex():number{
-        return this.currentIndex;
-    }
-
-    public setIndex(newIndex:number){
         
-        if(this.checkValidity(newIndex)) this.currentIndex = newIndex;
+        this.isSearching = true;
+        this.words.searchColl =  this.words.bigColl.filter((element: string) => element.includes(word));
+    
     }
 
-    public goNext() {
-        !this.checkValidity(this.currentIndex+1) ? this.currentIndex = 0 : this.currentIndex++; 
+    public updateWords(newData: string[]) {
+        this.words.bigColl = newData;
     }
 
-    public goBack() {
-        !this.checkValidity(this.currentIndex-1) ? this.currentIndex = this.size() - 1 : --this.currentIndex;
-        
+    public size(): number {
+        return !this.isSearching ? this.words.bigColl.length : this.words.searchColl.length;
+    }
+
+    public getWord(): string[] {
+       
+        return !this.isSearching ? this.words.bigColl : this.words.searchColl;
     }
 
 
-  
+
+
 }
 

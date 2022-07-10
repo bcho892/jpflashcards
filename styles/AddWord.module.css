@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 
-.searchholder{
+.searchholder {
     height: 7rem;
     width: 100%;
     display: flex;
@@ -33,7 +33,7 @@
     position: relative;
 }
 
-.searchbarcontainer input:focus{
+.searchbarcontainer input:focus {
     outline: none;
 }
 
@@ -42,7 +42,7 @@
     color: white;
     font-size: 1.1rem;
     font-weight: 900;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 6rem;
@@ -50,24 +50,26 @@
     right: 10%;
     background: var(--var3);
     content: '検索';
-    
+
     border-radius: 0 1rem 1rem 0;
     cursor: pointer;
 }
 
-.resultscontainer{
+.resultscontainer {
     width: 100%;
     display: flex;
 }
 
-.sidebar{
+.sidebar {
     min-width: 20rem;
+    max-width: 30rem;
     flex: 2;
     height: calc(100vh - 12rem);
-    justify-self:flex-start;
+    justify-self: flex-start;
+    z-index: 998;
 }
 
-.results{
+.results {
     flex: 4;
     background-color: #e7e7e7;
     height: calc(100vh - 12rem);
@@ -77,7 +79,56 @@
     overflow-y: scroll;
 }
 
-.results h2{
+.options svg {
+    display: none;
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    top: 7.1rem;
+    right: 0.5rem;
+    z-index: 1000;
+    fill: white;
+    cursor: pointer;
+}
 
 
+@media only screen and (max-width: 1000px) {
+    .sidebar {
+
+        width: 100vw;
+        height: 100vh;
+        justify-self: center;
+        position: fixed;
+        background-color: white;
+        transition: transform 1s;
+    }
+
+    .sidebar.closed {
+        transform: translateX(-50rem);
+    }
+
+    .results h1 {
+        font-size: 1.5rem;
+    }
+
+    .results p {
+        font-size: 0.9rem
+    }
+
+    .results {
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .options svg {
+        display: block;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .sidebar {
+        top: 5rem;
+
+    }
 }

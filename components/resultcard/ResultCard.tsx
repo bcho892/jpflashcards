@@ -10,10 +10,10 @@ interface ResultCardProps {
 
 const dbInstance = collection(database, 'words');
 const wordRef = doc(dbInstance, "words")
-const addWord = (word: string | undefined) => {
+const addWord = (word: string | undefined, meaning: string | undefined) => {
     if (word) {
         updateDoc(wordRef, {
-            word: arrayUnion(word)
+            word: arrayUnion(word + "," + meaning)
         })
     }
 
@@ -59,7 +59,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ word, meaning }: ResultCardProp
                     </g>
                 </svg>
                 <h1>{word}</h1>
-                <div className={styles.addbutton} onClick={() => addWord(formatWord(word))}>増加</div>
+                <div className={styles.addbutton} onClick={() => addWord(formatWord(word), meaning)}>増加</div>
             </div>
             <div className={isOpened ? `${styles.fullheight} ${styles.opened}` : styles.fullheight}>
                 <p>{meaning}</p>
@@ -68,5 +68,8 @@ const ResultCard: React.FC<ResultCardProps> = ({ word, meaning }: ResultCardProp
         </div>
     );
 }
+
+
+
 
 export default ResultCard;

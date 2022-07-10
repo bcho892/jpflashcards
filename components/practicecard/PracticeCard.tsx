@@ -3,7 +3,8 @@ import styles from './PracticeCard.module.css'
 import { Collection } from '../../classes/collection'
 interface Display {
     word: string;
-    collection: Collection;
+    back: () => void;
+    next: () => void;
     updateFunc: () => void;
 }
 
@@ -13,7 +14,7 @@ type Example = {
 
 }
 
-export const PracticeCard: React.FC<Display> = ({ word, collection, updateFunc }: Display) => {
+export const PracticeCard: React.FC<Display> = ({ word, back, next, updateFunc }: Display) => {
     const [currentExample, setCurrentExample] = React.useState<Example>({ sentence: "", source: "" });
     const [isSpamBlock, setIsSpamBlock] = React.useState<boolean>(false);
     React.useEffect(() => {
@@ -30,7 +31,7 @@ export const PracticeCard: React.FC<Display> = ({ word, collection, updateFunc }
         if (isSpamBlock) return;
         setIsSpamBlock(true);
         const url = "https://us-central1-youreiscraper.cloudfunctions.net/app?word=" + encodeURI(word) + "&selectionRange=50";
-        
+
         unblock();
         fetch(url)
             .then((res) => {
@@ -46,7 +47,7 @@ export const PracticeCard: React.FC<Display> = ({ word, collection, updateFunc }
 
 
     return (<div className={styles.container}>
-        <div className={`${styles.navbutton} ${styles.right}`} onClick={() => { collection.goBack(); updateFunc() }}>前</div>
+        <div className={`${styles.navbutton} ${styles.right}`} onClick={() => { back(); updateFunc() }}>前</div>
         <span className={styles.header}><h1>{word}</h1>
             <svg onClick={() => getExample(word)} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 383.748 383.748" xmlSpace="preserve">
@@ -58,9 +59,9 @@ export const PracticeCard: React.FC<Display> = ({ word, collection, updateFunc }
 		c18.584-11.975,34.707-27.145,47.731-44.706l39.139,38.952V235.742z"/>
             </svg>
         </span>
-        <p>{currentExample.sentence !== "" ? currentExample.sentence : "見つかりません"}</p>
+        <p>{currentExample.sentence !== "" && word !== undefined ? currentExample.sentence : "見つかりません"}</p>
         <p><a href={currentExample.source} target='blank'>原作へ</a></p>
-        <div className={`${styles.navbutton} ${styles.left}`} onClick={() => { collection.goNext(); updateFunc() }}>次</div>
+        <div className={`${styles.navbutton} ${styles.left}`} onClick={() => { next(); updateFunc() }}>次</div>
     </div>
     );
 }

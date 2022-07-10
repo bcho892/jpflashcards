@@ -7,7 +7,7 @@
     width: 100%;
     height:5rem;
     align-items: center;
-    
+    z-index: 999;
     background-color: var(--var1);
 }
 
@@ -28,4 +28,41 @@
 
 .navitems li:hover{
     cursor: pointer;
+}
+
+.menuicon{
+    position:fixed;
+    left: 1rem;
+    fill:white;
+    display: none;
+    cursor: pointer;
+}
+
+.logo{
+    position:absolute;
+    right: 2rem;
+}
+
+
+
+@media only screen and (max-width: 540px){
+    .navitems{
+        transform: translateY(7.1rem);
+        background-color: var(--var5);
+        width: 100vw;
+        gap: 1rem;
+        flex-direction: column;
+        padding: 1rem 0;
+        opacity: 0.9 ;
+        
+    }
+
+    .menuicon{
+        display: block;
+    }
+
+    .navitems.closed{
+        display: none;
+    }
+    
 }

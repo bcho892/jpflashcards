@@ -1,7 +1,7 @@
 .container {
     height: fit-content;
     max-width: 700px;
-    min-width: 400px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
 
@@ -13,7 +13,7 @@
 
 .navbutton {
     border-radius: 6px;
-    bottom: -3rem;
+    bottom: -2.5rem;
     height: 2rem;
     width: 5rem;
     color: white;
@@ -50,4 +50,18 @@
 
 .container a {
     color: var(--var2);
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .container h1{
+        font-size: 1.5rem;
+    }
+
+    .container p{
+        font-size: 0.8rem;
+    }
+
+    
+
 }
