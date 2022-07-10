@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    width:25rem;
+    max-width: 25rem;
+    height: fit-content;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.collapsed {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    color: var(--var1);
+    
+}
+
+.collapsed h1{
+    padding-right: 1rem;
+}
+
+.collapsed .openicon svg {
+    margin-right: 1rem;
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+    cursor:pointer;
+}
+
+.collapsed.opened .openicon svg{
+    transform: rotate(270deg); 
+}
+
+.fullheight {
+    height: 0;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+    visibility: hidden;
+
+}
+
+.deleteicon{
+    margin-left: auto;
+}
+
+.deleteicon svg{
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--var3);
+    cursor: pointer;
+    transition: fill 0.2s;
+}
+
+.deleteicon svg:hover{
+    fill:var(--var1);
+}
+
+
+.fullheight p {
+    opacity: 0;
+}
+
+.fullheight.opened {
+    height: fit-content;
+    visibility: visible;
+    padding-bottom: 1rem;
+
+}
+
+.fullheight.opened p {
+    opacity: 1;
+}

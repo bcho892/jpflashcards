@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    background-color: #e7e7e7;
+    min-height: 100vh;
+    padding-top: 5rem;
+    width: 100vw;
+
+}
+
+.wordholder {
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    column-gap: 1.2rem;
+    align-content: flex-start;
+    padding: 0 1rem;
+}
+
+.loadingmessage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (min-height:1200px){
+    .wordholder{
+        align-content: center;
+    }
+}
