@@ -25,7 +25,7 @@ export const formatWord = (word: string): string => {
 
 const Practice: NextPage = ({ initialData }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
-  const [currentWord, setCurrentWord] = React.useState<string[]>(myWords.getWord());
+  const [currentWord, setCurrentWord] = React.useState<string[]>(initialData);
   const [index, setIndex] = React.useState<number>(0);
 
   const handleSearchChange = (newTerm: string) => {
@@ -37,7 +37,17 @@ const Practice: NextPage = ({ initialData }: InferGetStaticPropsType<typeof getS
     update();
   }
 
-
+  const getWords = async () => {
+    getDocs(dbInstance)
+      .then((data) => {
+        try {
+          myWords.updateWords(data.docs[0].data().word);
+          setCurrentWord(myWords.getWord());
+        } catch {
+          return;
+        }
+      })
+  }
 
   const update = () => { setCurrentWord(myWords.getWord()); }
 
@@ -50,8 +60,8 @@ const Practice: NextPage = ({ initialData }: InferGetStaticPropsType<typeof getS
   }
 
   React.useEffect(() => {
-    
-    myWords.updateWords(initialData);
+
+    getWords();
     update();
   }, [])
 
