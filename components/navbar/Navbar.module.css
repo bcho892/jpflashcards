@@ -41,6 +41,7 @@
 .logo{
     position:absolute;
     right: 2rem;
+    pointer-events: none;
 }
 
 
