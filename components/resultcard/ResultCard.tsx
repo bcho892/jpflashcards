@@ -21,9 +21,8 @@ const addWord = (word: string | undefined, meaning: string | undefined) => {
 }
 
 const formatWord = (word: string): string | undefined => {
-    const regex = /\【(.*?)\／|\【(.*?)\】/;
+    const regex = /\u3010(.*?)\uFF0F|\u3010(.*?)\u3011/;
     let match = regex.exec(word);
-    console.log(match!);
     try {
         for (let i = 1; i < match!.length; ++i) {
             if (match![i]) {
@@ -31,7 +30,7 @@ const formatWord = (word: string): string | undefined => {
             }
         }
     } catch {
-        return match![2];
+        return word;
     }
 }
 
