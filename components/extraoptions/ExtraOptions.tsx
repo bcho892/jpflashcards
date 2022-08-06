@@ -5,6 +5,7 @@ interface ExtraOptionsProps {
     search: () => void;
     langFunc: (arg0: boolean) => void;
     changeSearch: (arg0: string) => void;
+    rankList: SuggestionList[];
 }
 
 type SuggestionList = {
@@ -19,9 +20,9 @@ type PageDisplay = {
 
 const perPage: number = 10;
 
-const ExtraOptions: React.FC<ExtraOptionsProps> = ({ search, langFunc, changeSearch }: ExtraOptionsProps) => {
+const ExtraOptions: React.FC<ExtraOptionsProps> = ({ search, langFunc, changeSearch, rankList }: ExtraOptionsProps) => {
 
-    const [suggestions, setSuggestions] = React.useState<SuggestionList[]>([]);
+    const [suggestions, setSuggestions] = React.useState<SuggestionList[]>(rankList);
     const [indexes, setIndexes] = React.useState<PageDisplay>({ currentIndex: 0, maxIndex: perPage });
 
     const getPopularDetail = (newWord: string) => {
@@ -32,7 +33,7 @@ const ExtraOptions: React.FC<ExtraOptionsProps> = ({ search, langFunc, changeSea
 
     }
 
-    const englishMode = (currentValue:boolean) => {
+    const englishMode = (currentValue: boolean) => {
         langFunc(currentValue);
     }
 
@@ -48,21 +49,6 @@ const ExtraOptions: React.FC<ExtraOptionsProps> = ({ search, langFunc, changeSea
         }
     }
 
-    React.useEffect(() => {
-        getPopular();
-    }, []);
-
-    const getPopular = async () => {
-        const url = "https://us-central1-youreiscraper.cloudfunctions.net/app/dict/popular";
-        fetch(url)
-            .then((res) => {
-                res.json()
-                    .then((items) => {
-                        setSuggestions(items);
-                    })
-            }).catch();
-    }
-
     return (
         <div className={styles.container}>
             <div className={styles.divider}>設定</div>
@@ -72,7 +58,7 @@ const ExtraOptions: React.FC<ExtraOptionsProps> = ({ search, langFunc, changeSea
                         <input type="checkbox" onChange={(e) => englishMode(e.target.checked)}></input>
                         <label>English</label>
                     </li>
-  
+
                 </ul>
             </div>
             <div className={styles.divider}>ランキング</div>
